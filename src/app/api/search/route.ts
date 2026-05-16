@@ -37,15 +37,15 @@ export async function POST(req: NextRequest) {
 
     // تحويل السؤال إلى vector
     const questionEmbedding =
-      await getEmbedding(question);
+  (await getEmbedding(question)) as number[];
 
     // حساب التشابه
     const matched = articles
       .map((article) => {
         try {
           const articleEmbedding = JSON.parse(
-            article.embedding
-          );
+  article.embedding
+) as number[];
 
           const similarity =
             cosineSimilarity(
