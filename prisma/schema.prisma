@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model LegalArticle {
+  id         String   @id @default(cuid())
+
+  lawName    String
+
+  articleNo  String
+
+  content    String
+
+  embedding  String
+
+  createdAt  DateTime @default(now())
+}
