@@ -69,8 +69,9 @@ export async function POST(req: NextRequest) {
     const articles = cleanedText
       .split(/المادة\s+\d+/g)
       .filter(
-        (text) => text.trim().length > 50
-      );
+  (text: string) =>
+    text.trim().length > 50
+);
 
     const articleNumbers =
       cleanedText.match(/المادة\s+\d+/g) || [];
